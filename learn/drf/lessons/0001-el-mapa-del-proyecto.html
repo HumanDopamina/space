@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lección 1 · El mapa del proyecto</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+<main>
+  <small>Lección 1 · Sistema de inventario</small>
+  <h1>El mapa del proyecto Django</h1>
+  <p class="dek">Tu primera victoria: distinguir el proyecto Django de una aplicación y levantar la base del inventario.</p>
+
+  <h2>La idea esencial</h2>
+  <p>Piensa en el <strong>proyecto</strong> como el edificio completo y en cada <strong>aplicación</strong> como un departamento especializado dentro de él. El proyecto contiene la configuración común: qué base de datos usar, qué aplicaciones están activas, qué URLs existen y cómo se ejecuta el sitio.</p>
+  <p>Una aplicación agrupa una capacidad concreta y reutilizable: sus modelos, vistas, URLs, administración y pruebas. En nuestro caso, el edificio es el sistema de inventario. <code>catalogo</code> guardará productos, categorías y proveedores; <code>movimientos</code> registrará entradas y salidas; <code>usuarios</code> se ocupará de cuentas y permisos.</p>
+  <p>La separación evita mezclar todo en un solo archivo. Por eso el modelo <code>Producto</code> irá en <code>catalogo/models.py</code>, mientras que <code>config/settings.py</code> le dice al proyecto que la aplicación <code>catalogo</code> existe y debe cargarse.</p>
+  <div class="card"><strong>Regla práctica:</strong> el proyecto coordina el sitio entero; una aplicación implementa una capacidad del negocio. Un proyecto puede tener varias aplicaciones, y cada aplicación debe tener un propósito reconocible.</div>
+
+  <h2>Hazlo ahora</h2>
+  <p>En PowerShell, dentro de una carpeta de trabajo:</p>
+  <pre><code>py -m venv .venv
+.\.venv\Scripts\Activate.ps1
+py -m pip install django djangorestframework
+django-admin startproject config .
+py manage.py startapp catalogo
+py manage.py migrate
+py manage.py runserver</code></pre>
+  <p>Abre <code>http://127.0.0.1:8000/</code>; verás la página de bienvenida de Django. Después revisa el árbol: <code>manage.py</code> es el punto de entrada para comandos administrativos como <code>runserver</code>, <code>config/settings.py</code> configura el proyecto y <code>catalogo/</code> será el hogar de los modelos de productos. El comando <code>runserver</code> no crea <code>manage.py</code>: ese archivo lo crea <code>startproject</code>.</p>
+
+  <h2>Recuperación</h2>
+  <p>Sin mirar la lección, responde: ¿dónde pondrías el modelo <code>Producto</code> y dónde registrarías que <code>catalogo</code> está instalado? Luego comprueba tu respuesta en <code>catalogo/models.py</code> y <code>config/settings.py</code>.</p>
+
+  <h2>Tu siguiente paso</h2>
+  <p>Cuando tengas el servidor funcionando, dime qué aparece en la página y qué archivos creó el comando. Con eso diseñaremos el primer modelo de producto.</p>
+  <p><a href="../MISSION.md">Ver la misión</a> · <a href="../RESOURCES.md">Fuentes del curso</a> · <a href="https://docs.djangoproject.com/en/6.2/intro/tutorial01/">Fuente principal: tutorial oficial de Django</a></p>
+  <p><small>Si algo no está claro, pregúntame y lo trabajamos juntos.</small></p>
+</main>
+</body>
+</html>

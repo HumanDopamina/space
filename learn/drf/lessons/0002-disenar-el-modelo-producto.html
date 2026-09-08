@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lección 2 · Diseñar Producto</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+<main>
+  <small>Lección 2 · Sistema de inventario</small>
+  <h1>Diseñar el modelo Producto</h1>
+  <p class="dek">Antes de escribir clases, convierte una necesidad del negocio en datos que Django pueda guardar.</p>
+
+  <h2>Qué es un modelo</h2>
+  <p>Un modelo es una clase Python que describe una entidad persistente. Cada atributo de campo se convierte en una columna de la tabla y Django usa esa misma definición para validar datos, crear migraciones y ofrecer una API de consultas.</p>
+  <p>Por ejemplo, un producto puede tener un nombre textual, un precio decimal y una cantidad entera. El modelo expresa qué significa cada dato y qué restricciones debe cumplir.</p>
+  <div class="card"><strong>Flujo mental:</strong> requisito del negocio → modelo en <code>models.py</code> → <code>makemigrations</code> crea una propuesta de cambio → <code>migrate</code> aplica ese cambio a la base de datos.</div>
+
+  <h2>Diseño antes del código</h2>
+  <p>Para este primer paso no añadiremos todavía categorías, proveedores ni movimientos. Aislamos una sola entidad para que puedas ver la relación entre un requisito y un campo.</p>
+  <p>Un inventario necesita identificar el producto, describirlo, saber cuánto cuesta y conocer cuántas unidades hay disponibles. Django ofrece tipos distintos porque el tipo también comunica reglas: <code>CharField</code> para texto corto, <code>DecimalField</code> para dinero y <code>IntegerField</code> para cantidades.</p>
+
+  <h2>Ejercicio de diseño</h2>
+  <p>Sin escribir código todavía, propón una tabla para <code>Producto</code>. Para cada campo indica: nombre, tipo de dato y por qué lo necesita el negocio. Incluye al menos cuatro campos y decide cuál debería ser obligatorio.</p>
+  <p>Ejemplo de formato:</p>
+  <pre><code>- nombre — texto corto — identifica el producto
+- precio — decimal — representa el precio
+- ...</code></pre>
+  <p>Cuando respondas, revisaremos tus decisiones y escribiremos juntos <code>catalogo/models.py</code>.</p>
+  <p><a href="https://docs.djangoproject.com/en/6.0/intro/tutorial02/">Fuente principal: modelos y migraciones en la documentación oficial de Django</a></p>
+  <p><small>Si algo no está claro, pregúntame antes de continuar.</small></p>
+</main>
+</body>
+</html>

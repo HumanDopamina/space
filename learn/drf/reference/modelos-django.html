@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Referencia · Modelos Django</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+<main>
+  <h1>Modelos Django</h1>
+  <p class="dek">Una guía rápida para convertir entidades del inventario en tablas.</p>
+  <h2>Campos del Producto</h2>
+  <pre><code>class Producto(models.Model):
+    name = models.CharField(max_length=150)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    description = models.TextField(blank=True)
+    color = models.CharField(max_length=50, blank=True)
+    # id se crea automáticamente</code></pre>
+  <h2>Reglas rápidas</h2>
+  <ul>
+    <li><code>CharField</code> necesita <code>max_length</code>.</li>
+    <li><code>DecimalField</code> necesita <code>max_digits</code> y <code>decimal_places</code>; es adecuado para precios.</li>
+    <li><code>blank=True</code> permite dejar el campo vacío en formularios y validación.</li>
+    <li><code>null=True</code> permite guardar SQL <code>NULL</code>; para texto normalmente se prefiere solo <code>blank=True</code>.</li>
+    <li>Django agrega un <code>id</code> como clave primaria si no declaras otra.</li>
+  </ul>
+  <p><a href="https://docs.djangoproject.com/en/6.0/topics/db/models/">Referencia oficial de modelos</a></p>
+</main>
+</body>
+</html>

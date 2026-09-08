@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lección 3 · Administrar productos</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+<main>
+  <small>Lección 3 · Sistema de inventario</small>
+  <h1>Administrar productos</h1>
+  <p class="dek">Comprueba el modelo desde la interfaz que Django genera para el personal administrador.</p>
+
+  <h2>Por qué existe el admin</h2>
+  <p>Django incluye un sitio administrativo para que el equipo gestione datos internos sin que tengamos que construir todavía una interfaz completa. El admin lee los modelos registrados y genera formularios usando sus tipos y restricciones.</p>
+
+  <h2>Registrar el modelo</h2>
+  <p>Abre <code>catalogo/admin.py</code> y añade:</p>
+  <pre><code>from django.contrib import admin
+from .models import Producto
+
+admin.site.register(Producto)</code></pre>
+  <p>El registro conecta <code>Producto</code> con el panel. No crea otra tabla; solo añade una interfaz para trabajar con la tabla existente.</p>
+
+  <h2>Crear un administrador</h2>
+  <pre><code>py manage.py createsuperuser</code></pre>
+  <p>El comando te pedirá nombre de usuario, correo y contraseña. Luego inicia el servidor con <code>py manage.py runserver</code> y visita <code>http://127.0.0.1:8000/admin/</code>.</p>
+
+  <h2>Práctica</h2>
+  <p>Crea dos productos desde el panel: uno con color y descripción, y otro dejando esos campos vacíos. Observa qué campos aparecen como obligatorios y verifica que ambos registros se guarden.</p>
+  <p><a href="https://docs.djangoproject.com/en/6.0/intro/tutorial02/">Fuente principal: sitio admin en la documentación oficial de Django</a></p>
+  <p><small>Si algo falla, copia el mensaje exacto y lo diagnosticamos juntos.</small></p>
+</main>
+</body>
+</html>
